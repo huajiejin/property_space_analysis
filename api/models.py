@@ -1,3 +1,5 @@
+# Definition of the models using Django ORM
+
 from django.db import models
 
 class Address(models.Model):

@@ -1,3 +1,4 @@
+# Gloabl exception handler middleware for non-ninja endpoints, if any
 from django.http import JsonResponse, Http404
 from django.core import exceptions
 

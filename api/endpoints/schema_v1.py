@@ -1,4 +1,4 @@
-from datetime import date
+# Description: Schema for PropertySpace endpoints
 from ninja import Schema, ModelSchema, Field
 from api.models import PropertySpace
 

@@ -1,3 +1,5 @@
+# Description: This file contains the API endpoints for the version 1 of the API.
+
 import os
 from typing import List
 from ninja import NinjaAPI
