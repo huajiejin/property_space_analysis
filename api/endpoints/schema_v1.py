@@ -1,16 +1,16 @@
 from datetime import date
-from ninja import Schema, ModelSchema
+from ninja import Schema, ModelSchema, Field
 from api.models import PropertySpace
 
 class AddressSchema(Schema):
-	street: str
-	city: str
-	state: str
-	country: str
-	postal_code: str
+	street: str = Field(min_length=2, max_length=64)
+	city: str = Field(min_length=2, max_length=64)
+	state: str = Field(min_length=2, max_length=64)
+	country: str = Field(min_length=2, max_length=64)
+	postal_code: str = Field(min_length=2, max_length=64)
 
 class PropertySpaceIn(Schema):
-	name: str
+	name: str = Field(min_length=2, max_length=128)
 	address: AddressSchema
 
 class PatchPropertySpaceSchema(ModelSchema):

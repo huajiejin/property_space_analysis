@@ -2,7 +2,7 @@ import os
 from typing import List
 from ninja import NinjaAPI
 from ninja.security import HttpBearer
-from .schema import PropertySpaceIn, PropertySpaceOut, PatchPropertySpaceSchema
+from .schema_v1 import PropertySpaceIn, PropertySpaceOut, PatchPropertySpaceSchema
 from api.models import Address, PropertySpace, UnitSpace, MeterData
 from django.shortcuts import get_object_or_404
 from django.db.models import Prefetch, Q

@@ -65,6 +65,8 @@ To create a property space, you can use the following command:
 curl -X POST -H "Authorization: Bearer changeme" -H "Content-Type: application/json" -d '{"name": "New Space for Testing", "address": {"street": "123 Test St", "city": "Test City", "state": "TS", "country": "U.S.", "postal_code": "12345"}}' http://localhost:8000/api/v1/property-spaces
 ```
 
+Note: The length of the address fields should be between 2 and 64 characters. The length of the name field should be between 2 and 128 characters.
+
 To list all property spaces, you can use the following command:
 
 ```bash
