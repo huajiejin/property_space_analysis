@@ -137,6 +137,20 @@ To delete a property space, you can use the following command:
 curl -X DELETE -H "Authorization: Bearer changeme" http://localhost:8000/api/v1/property-spaces/1
 ```
 
+To demonstrate the custom Exception handling, you can use the following command:
+
+```bash
+curl -H "Authorization: Bearer changeme" http://localhost:8000/api/v1/service-unavailable-exception
+```
+
+We intentionally raised a `ServiceUnavailableException` exception to demonstrate the custom exception handling. The response will be:
+
+```json
+{
+  "message": "We are simulating a service unavailable exception. Please retry later"
+}
+```
+
 ## Running the automated tests
 
 ```bash

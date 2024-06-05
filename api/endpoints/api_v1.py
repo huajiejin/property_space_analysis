@@ -7,6 +7,7 @@ from api.models import Address, PropertySpace, UnitSpace, MeterData
 from django.shortcuts import get_object_or_404
 from django.db.models import Prefetch, Q
 from django.http import Http404
+from api.exceptions import ServiceUnavailableException
 
 
 class AuthBearer(HttpBearer):
@@ -120,3 +121,16 @@ def _generate_property_space_dict(property_space) -> PropertySpaceOut:
         # We are assuming that all meters have the same unit in the scope of the exercise.
         "consumption_unit": "kWh"
     }
+
+@api_v1.get("/service-unavailable-exception")
+def simulate_service_unavailable_exception(request):
+    raise ServiceUnavailableException("We are simulating a service unavailable exception.")
+
+# custom exception handler
+@api_v1.exception_handler(ServiceUnavailableException)
+def service_unavailable(request, exc):
+    return api_v1.create_response(
+        request,
+        {"message": f'{exc.message} Please retry later'},
+        status=503,
+    )
