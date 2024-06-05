@@ -8,6 +8,10 @@ from django.shortcuts import get_object_or_404
 from django.db.models import Prefetch, Q
 from django.http import Http404
 from api.exceptions import ServiceUnavailableException
+import logging
+
+
+logger = logging.getLogger(__name__)
 
 
 class AuthBearer(HttpBearer):
@@ -21,21 +25,26 @@ api_v1 = NinjaAPI(version='1.0', auth=AuthBearer())
 
 @api_v1.post("/property-spaces")
 def create_property_space_v1(request, payload: PropertySpaceIn):
+    logger.info(f"Creating property space: {payload.name}")
     address = Address.objects.create(
         street=payload.address.street,
         state=payload.address.state,
+        city=payload.address.city,
         country=payload.address.country,
         postal_code=payload.address.postal_code
     )
+
     property_space = PropertySpace.objects.create(
         address=address,
         name=payload.name
     )
+    logger.info(f"Property space created: {property_space.id}")
     return {"property_space_id": property_space.id}
 
 
 @api_v1.get("/property-spaces/{property_space_id}", response=PropertySpaceOut)
 def get_property_space_by_id_v1(request, property_space_id: int, year: int = None):
+    logger.info(f"Getting property space by id: {property_space_id}")
     if year:
         property_space = PropertySpace.objects.filter(id=property_space_id).prefetch_related(
             Prefetch(
@@ -58,12 +67,15 @@ def get_property_space_by_id_v1(request, property_space_id: int, year: int = Non
             )
         )
     if not property_space.exists():
+        logger.error(f"Property space not found: {property_space_id}")
         raise Http404
+    logger.info(f"Property space found: {property_space_id}")
     return _generate_property_space_dict(property_space.first())
 
 
 @api_v1.get("/property-spaces", response=List[PropertySpaceOut])
 def get_property_spaces_v1(request, year: int = None):
+    logger.info(f"Getting all property spaces with year: {year}")
     if year:
         property_spaces = PropertySpace.objects.prefetch_related(
             Prefetch(
@@ -85,22 +97,27 @@ def get_property_spaces_v1(request, year: int = None):
                 queryset=UnitSpace.objects.prefetch_related("meterdata_set")
             )
         )
+    logger.info(f"Found {property_spaces.count()} property spaces")
     return [_generate_property_space_dict(property_space, ) for property_space in property_spaces]
 
 
 @api_v1.put("/property-spaces/{property_space_id}")
 def update_property_space_v1(request, property_space_id: int, payload: PatchPropertySpaceSchema):
+    logger.info(f"Updating property space: {property_space_id}")
     property_space = get_object_or_404(PropertySpace, id=property_space_id)
     for attr, value in payload.dict(exclude_unset=True).items():
         setattr(property_space, attr, value)
     property_space.save()
+    logger.info(f"Property space updated: {property_space_id}")
     return {"success": True}
 
 
 @api_v1.delete("/property-spaces/{property_space_id}")
 def delete_property_space_v1(request, property_space_id: int):
+    logger.info(f"Deleting property space: {property_space_id}")
     property_space = get_object_or_404(PropertySpace, id=property_space_id)
     property_space.delete()
+    logger.info(f"Property space deleted: {property_space_id}")
     return {"success": True}
 
 
@@ -129,6 +146,7 @@ def simulate_service_unavailable_exception(request):
 # custom exception handler
 @api_v1.exception_handler(ServiceUnavailableException)
 def service_unavailable(request, exc):
+    logger.error(f"ServiceUnavailableException: {exc.message}")
     return api_v1.create_response(
         request,
         {"message": f'{exc.message} Please retry later'},
