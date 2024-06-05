@@ -43,3 +43,9 @@ class MeterData(models.Model):
     measurement_start_date = models.DateTimeField()
     measurement_end_date = models.DateTimeField()
     unit_space = models.ManyToManyField(UnitSpace)
+
+    def __str__(self):
+        return "%s (%s)" % (
+            self.meter_provider_name,
+            ", ".join(unit_space.name for unit_space in self.unit_space.all()),
+        )
