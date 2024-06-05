@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+	'api.middleware.GlobalExceptionHandlerMiddleware',
 ]
 
 ROOT_URLCONF = 'property_space_analysis.urls'
