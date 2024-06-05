@@ -44,3 +44,11 @@ python manage.py runserver
 ```
 
 The server will be running at http://localhost:8000
+
+### Running the automated tests
+
+```bash
+python manage.py test
+```
+
+Note that the fixture `api_testing_fixture.json` is used to load the initial test data for the automated tests.
