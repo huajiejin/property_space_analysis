@@ -23,10 +23,18 @@ pip install -r requirements.txt
 
 ### Setting up the database
 
-For simplicity, we will use SQLite as the database, which is already configured in the settings.py file. To run the migrations, execute the following command:
+For simplicity, we will use SQLite as the database, which is already configured in the settings.py file.
+
+To run the migrations, execute the following command:
 
 ```bash
 python manage.py migrate
+```
+
+To load the initial test data, execute the following command:
+
+```bash
+python manage.py loaddata api_testing_fixture.json
 ```
 
 ### Running the server
