@@ -159,6 +159,40 @@ python manage.py test
 
 Note that the fixture `api_testing_fixture.json` is used to load the initial test data for the automated tests. Please do not delete this file.
 
+
+## Limitations and Future Suggestions
+
+
+### Authentication and Authorization
+
+- The API uses a basic token-based authentication for demonstration purposes. In a real-world scenario, a more secure and robust authentication method, such as OAuth2 or JWT, should be implemented.
+
+
+### Extendability
+
+- The project structure can be improved for better extensibility. Separate apps for each resource (e.g., property_space, address, unit_space, meter_data) would make the code more modular and maintainable. For demonstration purposes, everything is currently in a single app.
+- For larger projects, the endpoints, schema, and exceptions should be split into separate files to improve organization and maintainability.
+
+
+### Query Efficiency
+
+- The API uses `prefetch_related` to avoid the `N + 1` problem when querying related objects. For better performance with large datasets in traditional SQL databases, redundant fields (e.g., total_area, total_consumption) can be added to models to store aggregated data. These fields can be updated regularly using signals or background tasks. This trade-off improves query efficiency at the cost of data consistency.
+- Dedicated database indexes should be added to improve query performance for frequently accessed fields.
+- Elasticsearch or other search engines can be used for complex search queries and aggregations.
+- Caching can be implemented to reduce the load on the database for read-heavy applications.
+- Pagination should be implemented for large datasets to improve performance and reduce the response size.
+
+
+### Error Handling
+
+- The API uses custom exception handling for demonstration purposes. In a real-world scenario, different types of exceptions should be handled more gracefully with structured error responses. All potential errors, their status codes, and messages should be documented in the API documentation.
+
+
+### REST Framework Choices
+
+- The project uses Django Ninja for the REST API due to its simplicity and ease of use. Other popular choices include Django REST Framework (DRF), which is widely adopted in the Django community. If extending an existing DRF project, it is better to stick with DRF for consistency.
+
+
 ## Sample Data
 
 To help you understand the sample data in the `api_testing_fixture.json` file, here is the table views of the data:
