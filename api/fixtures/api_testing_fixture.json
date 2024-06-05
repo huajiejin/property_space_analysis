@@ -71,9 +71,9 @@
 		"pk": 2,
 		"fields": {
 			"name": "unit space 2",
-			"unit_type": "COMMON_AREA",
+			"unit_type": "VACANT",
 			"area": 2000,
-			"property_space": 2
+			"property_space": 1
 		}
 	},
 	{
@@ -81,9 +81,9 @@
 		"pk": 3,
 		"fields": {
 			"name": "unit space 3",
-			"unit_type": "COMMON_AREA",
+			"unit_type": "LEASED",
 			"area": 3000,
-			"property_space": 3
+			"property_space": 1
 		}
 	},
 	{
@@ -93,7 +93,7 @@
 			"name": "unit space 4",
 			"unit_type": "COMMON_AREA",
 			"area": 4000,
-			"property_space": 1
+			"property_space": 2
 		}
 	},
 	{
@@ -103,136 +103,6 @@
 			"name": "unit space 5",
 			"unit_type": "COMMON_AREA",
 			"area": 5000,
-			"property_space": 1
-		}
-	},
-	{
-		"model": "api.unitspace",
-		"pk": 6,
-		"fields": {
-			"name": "unit space 6",
-			"unit_type": "COMMON_AREA",
-			"area": 6000,
-			"property_space": 1
-		}
-	},
-	{
-		"model": "api.unitspace",
-		"pk": 7,
-		"fields": {
-			"name": "unit space 7",
-			"unit_type": "COMMON_AREA",
-			"area": 7000,
-			"property_space": 1
-		}
-	},
-	{
-		"model": "api.unitspace",
-		"pk": 8,
-		"fields": {
-			"name": "unit space 8",
-			"unit_type": "COMMON_AREA",
-			"area": 8000,
-			"property_space": 2
-		}
-	},
-	{
-		"model": "api.unitspace",
-		"pk": 9,
-		"fields": {
-			"name": "unit space 9",
-			"unit_type": "COMMON_AREA",
-			"area": 9000,
-			"property_space": 2
-		}
-	},
-	{
-		"model": "api.unitspace",
-		"pk": 10,
-		"fields": {
-			"name": "unit space 10",
-			"unit_type": "COMMON_AREA",
-			"area": 10000,
-			"property_space": 2
-		}
-	},
-	{
-		"model": "api.unitspace",
-		"pk": 11,
-		"fields": {
-			"name": "unit space 11",
-			"unit_type": "COMMON_AREA",
-			"area": 11000,
-			"property_space": 2
-		}
-	},
-	{
-		"model": "api.unitspace",
-		"pk": 12,
-		"fields": {
-			"name": "unit space 12",
-			"unit_type": "COMMON_AREA",
-			"area": 12000,
-			"property_space": 2
-		}
-	},
-	{
-		"model": "api.unitspace",
-		"pk": 13,
-		"fields": {
-			"name": "unit space 13",
-			"unit_type": "COMMON_AREA",
-			"area": 13000,
-			"property_space": 3
-		}
-	},
-	{
-		"model": "api.unitspace",
-		"pk": 14,
-		"fields": {
-			"name": "unit space 14",
-			"unit_type": "COMMON_AREA",
-			"area": 14000,
-			"property_space": 3
-		}
-	},
-	{
-		"model": "api.unitspace",
-		"pk": 15,
-		"fields": {
-			"name": "unit space 15",
-			"unit_type": "COMMON_AREA",
-			"area": 15000,
-			"property_space": 3
-		}
-	},
-	{
-		"model": "api.unitspace",
-		"pk": 16,
-		"fields": {
-			"name": "unit space 16",
-			"unit_type": "COMMON_AREA",
-			"area": 16000,
-			"property_space": 3
-		}
-	},
-	{
-		"model": "api.unitspace",
-		"pk": 17,
-		"fields": {
-			"name": "unit space 17",
-			"unit_type": "COMMON_AREA",
-			"area": 17000,
-			"property_space": 3
-		}
-	},
-	{
-		"model": "api.unitspace",
-		"pk": 18,
-		"fields": {
-			"name": "unit space 18",
-			"unit_type": "COMMON_AREA",
-			"area": 18000,
 			"property_space": 3
 		}
 	},
@@ -245,8 +115,8 @@
 			"meter_source": "source 1",
 			"measurement_reading": 1000,
 			"measurement_unit": "kWh",
-			"measurement_start_date": "2022-01-01T00:00:00Z",
-			"measurement_end_date": "2022-01-31T23:59:59Z",
+			"measurement_start_date": "2021-01-01T00:00:00Z",
+			"measurement_end_date": "2021-01-31T23:59:59Z",
 			"unit_space": [
 				1
 			]
@@ -261,8 +131,8 @@
 			"meter_source": "source 2",
 			"measurement_reading": 2000,
 			"measurement_unit": "kWh",
-			"measurement_start_date": "2022-01-01T00:00:00Z",
-			"measurement_end_date": "2022-01-31T23:59:59Z",
+			"measurement_start_date": "2022-02-01T00:00:00Z",
+			"measurement_end_date": "2022-02-28T23:59:59Z",
 			"unit_space": [
 				2
 			]
@@ -277,8 +147,8 @@
 			"meter_source": "source 3",
 			"measurement_reading": 3000,
 			"measurement_unit": "kWh",
-			"measurement_start_date": "2022-01-01T00:00:00Z",
-			"measurement_end_date": "2022-01-31T23:59:59Z",
+			"measurement_start_date": "2022-03-01T00:00:00Z",
+			"measurement_end_date": "2022-03-31T23:59:59Z",
 			"unit_space": [
 				3
 			]
@@ -293,8 +163,8 @@
 			"meter_source": "source 4",
 			"measurement_reading": 4000,
 			"measurement_unit": "kWh",
-			"measurement_start_date": "2022-02-01T00:00:00Z",
-			"measurement_end_date": "2022-02-28T23:59:59Z",
+			"measurement_start_date": "2023-04-01T00:00:00Z",
+			"measurement_end_date": "2023-04-30T23:59:59Z",
 			"unit_space": [
 				4
 			]
@@ -309,8 +179,8 @@
 			"meter_source": "source 5",
 			"measurement_reading": 5000,
 			"measurement_unit": "kWh",
-			"measurement_start_date": "2022-02-01T00:00:00Z",
-			"measurement_end_date": "2022-02-28T23:59:59Z",
+			"measurement_start_date": "2024-05-01T00:00:00Z",
+			"measurement_end_date": "2024-05-31T23:59:59Z",
 			"unit_space": [
 				5
 			]
@@ -325,235 +195,10 @@
 			"meter_source": "source 6",
 			"measurement_reading": 6000,
 			"measurement_unit": "kWh",
-			"measurement_start_date": "2022-02-01T00:00:00Z",
-			"measurement_end_date": "2022-02-28T23:59:59Z",
+			"measurement_start_date": "2022-06-01T00:00:00Z",
+			"measurement_end_date": "2022-06-30T23:59:59Z",
 			"unit_space": [
-				6
-			]
-		}
-	},
-	{
-		"model": "api.meterdata",
-		"pk": 7,
-		"fields": {
-			"meter_number": "7",
-			"meter_provider_name": "provider 7",
-			"meter_source": "source 7",
-			"measurement_reading": 7000,
-			"measurement_unit": "kWh",
-			"measurement_start_date": "2022-02-01T00:00:00Z",
-			"measurement_end_date": "2022-02-28T23:59:59Z",
-			"unit_space": [
-				7
-			]
-		}
-	},
-	{
-		"model": "api.meterdata",
-		"pk": 8,
-		"fields": {
-			"meter_number": "8",
-			"meter_provider_name": "provider 8",
-			"meter_source": "source 8",
-			"measurement_reading": 8000,
-			"measurement_unit": "kWh",
-			"measurement_start_date": "2022-02-01T00:00:00Z",
-			"measurement_end_date": "2022-02-28T23:59:59Z",
-			"unit_space": [
-				8
-			]
-		}
-	},
-	{
-		"model": "api.meterdata",
-		"pk": 9,
-		"fields": {
-			"meter_number": "9",
-			"meter_provider_name": "provider 9",
-			"meter_source": "source 9",
-			"measurement_reading": 9000,
-			"measurement_unit": "kWh",
-			"measurement_start_date": "2022-02-01T00:00:00Z",
-			"measurement_end_date": "2022-02-28T23:59:59Z",
-			"unit_space": [
-				9
-			]
-		}
-	},
-	{
-		"model": "api.meterdata",
-		"pk": 10,
-		"fields": {
-			"meter_number": "10",
-			"meter_provider_name": "provider 10",
-			"meter_source": "source 10",
-			"measurement_reading": 10000,
-			"measurement_unit": "kWh",
-			"measurement_start_date": "2022-02-01T00:00:00Z",
-			"measurement_end_date": "2022-02-28T23:59:59Z",
-			"unit_space": [
-				10
-			]
-		}
-	},
-	{
-		"model": "api.meterdata",
-		"pk": 11,
-		"fields": {
-			"meter_number": "11",
-			"meter_provider_name": "provider 11",
-			"meter_source": "source 11",
-			"measurement_reading": 11000,
-			"measurement_unit": "kWh",
-			"measurement_start_date": "2022-02-01T00:00:00Z",
-			"measurement_end_date": "2022-02-28T23:59:59Z",
-			"unit_space": [
-				11
-			]
-		}
-	},
-	{
-		"model": "api.meterdata",
-		"pk": 12,
-		"fields": {
-			"meter_number": "12",
-			"meter_provider_name": "provider 12",
-			"meter_source": "source 12",
-			"measurement_reading": 12000,
-			"measurement_unit": "kWh",
-			"measurement_start_date": "2022-02-01T00:00:00Z",
-			"measurement_end_date": "2022-02-28T23:59:59Z",
-			"unit_space": [
-				12
-			]
-		}
-	},
-	{
-		"model": "api.meterdata",
-		"pk": 13,
-		"fields": {
-			"meter_number": "13",
-			"meter_provider_name": "provider 13",
-			"meter_source": "source 13",
-			"measurement_reading": 13000,
-			"measurement_unit": "kWh",
-			"measurement_start_date": "2022-02-01T00:00:00Z",
-			"measurement_end_date": "2022-02-28T23:59:59Z",
-			"unit_space": [
-				13
-			]
-		}
-	},
-	{
-		"model": "api.meterdata",
-		"pk": 14,
-		"fields": {
-			"meter_number": "14",
-			"meter_provider_name": "provider 14",
-			"meter_source": "source 14",
-			"measurement_reading": 14000,
-			"measurement_unit": "kWh",
-			"measurement_start_date": "2022-02-01T00:00:00Z",
-			"measurement_end_date": "2022-02-28T23:59:59Z",
-			"unit_space": [
-				14
-			]
-		}
-	},
-	{
-		"model": "api.meterdata",
-		"pk": 15,
-		"fields": {
-			"meter_number": "15",
-			"meter_provider_name": "provider 15",
-			"meter_source": "source 15",
-			"measurement_reading": 15000,
-			"measurement_unit": "kWh",
-			"measurement_start_date": "2022-02-01T00:00:00Z",
-			"measurement_end_date": "2022-02-28T23:59:59Z",
-			"unit_space": [
-				15
-			]
-		}
-	},
-	{
-		"model": "api.meterdata",
-		"pk": 16,
-		"fields": {
-			"meter_number": "16",
-			"meter_provider_name": "provider 16",
-			"meter_source": "source 16",
-			"measurement_reading": 16000,
-			"measurement_unit": "kWh",
-			"measurement_start_date": "2022-02-01T00:00:00Z",
-			"measurement_end_date": "2022-02-28T23:59:59Z",
-			"unit_space": [
-				16
-			]
-		}
-	},
-	{
-		"model": "api.meterdata",
-		"pk": 17,
-		"fields": {
-			"meter_number": "17",
-			"meter_provider_name": "provider 17",
-			"meter_source": "source 17",
-			"measurement_reading": 17000,
-			"measurement_unit": "kWh",
-			"measurement_start_date": "2022-02-01T00:00:00Z",
-			"measurement_end_date": "2022-02-28T23:59:59Z",
-			"unit_space": [
-				17
-			]
-		}
-	},
-	{
-		"model": "api.meterdata",
-		"pk": 18,
-		"fields": {
-			"meter_number": "18",
-			"meter_provider_name": "provider 18",
-			"meter_source": "source 18",
-			"measurement_reading": 18000,
-			"measurement_unit": "kWh",
-			"measurement_start_date": "2022-02-01T00:00:00Z",
-			"measurement_end_date": "2022-02-28T23:59:59Z",
-			"unit_space": [
-				18
-			]
-		}
-	},
-	{
-		"model": "api.meterdata",
-		"pk": 19,
-		"fields": {
-			"meter_number": "19",
-			"meter_provider_name": "provider 19",
-			"meter_source": "source 19",
-			"measurement_reading": 19000,
-			"measurement_unit": "kWh",
-			"measurement_start_date": "2022-02-01T00:00:00Z",
-			"measurement_end_date": "2022-02-28T23:59:59Z",
-			"unit_space": [
-				1,
-				4
-			]
-		}
-	},
-	{
-		"model": "api.meterdata",
-		"pk": 20,
-		"fields": {
-			"meter_number": "20",
-			"meter_provider_name": "provider 20",
-			"meter_source": "source 20",
-			"measurement_reading": 20000,
-			"measurement_unit": "kWh",
-			"measurement_start_date": "2022-02-01T00:00:00Z",
-			"measurement_end_date": "2022-02-28T23:59:59Z",
-			"unit_space": [
-				2,
+				4,
 				5
 			]
 		}

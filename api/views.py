@@ -3,13 +3,16 @@ from django.views import View
 from .models import Address, PropertySpace, UnitSpace, MeterData
 import json
 from django.shortcuts import get_object_or_404
+from django.db.models import Q
 
 class PropertySpaceView(View):
     def get(self, request, *args, **kwargs):
-        if kwargs.get('id'):
-            return self.__get_property_space_detail(kwargs['id'])
+        id = kwargs.get('id')
+        year = request.GET.get('year')
+        if id:
+            return self.__get_property_space_detail(id, year)
         else:
-            return self.__get_all_property_spaces()
+            return self.__get_all_property_spaces(year)
 
     def post(self, request, *args, **kwargs):
         data = json.loads(request.body)
@@ -31,24 +34,30 @@ class PropertySpaceView(View):
         space.delete()
         return JsonResponse({"detail": "Deleted successfully"})
     
-    def __get_property_space_detail(self, id):
+    def __get_property_space_detail(self, id, year=None):
         space = get_object_or_404(PropertySpace, pk=id)
-        space_json = self.__create_json_from_property_space(space)
+        space_json = self.__create_json_from_property_space(space, year)
         return JsonResponse({"property_space": space_json})
 
-    def __get_all_property_spaces(self):
+    def __get_all_property_spaces(self, year=None):
         data = []
         spaces = PropertySpace.objects.all()
 
         for space in spaces:
-            space_json = self.__create_json_from_property_space(space)
+            space_json = self.__create_json_from_property_space(space, year)
             data.append(space_json)
 
         return JsonResponse({"all_property_spaces": data})
 
-    def __create_json_from_property_space(self, space):
+    def __create_json_from_property_space(self, space, year=None):
         units = UnitSpace.objects.filter(property_space=space)
-        meters = MeterData.objects.filter(unit_space__in=units)
+        if year:
+            # year equals to  measurement_start_date or measurement_end_date
+            meters = MeterData.objects.filter(
+                Q(unit_space__in=units) & (Q(measurement_start_date__year=year) | Q(measurement_end_date__year=year))
+            )
+        else:
+            meters = MeterData.objects.filter(unit_space__in=units)
         return {
             "name": space.name,
             "address": {
@@ -61,5 +70,6 @@ class PropertySpaceView(View):
             "number_of_units": units.count(),
             "total_area": sum(unit.area for unit in units),
             "total_consumption": sum(meter.measurement_reading for meter in meters),
+            # We are assuming that all meters have the same unit in the scope of the exercise.
             "consumption_unit": "kWh" if meters else None,
         }
