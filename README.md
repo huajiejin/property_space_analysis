@@ -5,7 +5,6 @@ The solution to the exercise: Property Space Analysis API.
 ### Creating virtual environment
 
 ```bash
-# For Python 3
 python3 -m venv .venv
 ```
 
@@ -197,7 +196,7 @@ Note that the fixture `api_testing_fixture.json` is used to load the initial tes
 
 While working on the assignment, I made a few assumptions due to the time constraints and to avoid disturbing you outside of work hours. I hope these are acceptable:
 
-1. I assumed the model for meter data and unit space has a many-to-many relationship. Each meter's data is counted fully in the total consumption of each unit space it is associated with. For example, if unit space 1 and unit space 2 both use meter data 1 (100 kWh), the total consumption for each space is considered 100 kWh. I made this assumption for simplicity, though I understand a more realistic approach would involve splitting the meter data between the spaces.
+1. I assumed the model for meter data and unit space has a many-to-many relationship. Meter data shared between multiple unit spaces is divided equally among them. For example, if unit space 1 and unit space 2 both use meter data 1 (100 kWh), the total consumption for each space is considered 50 kWh.
 2. I did not create a dummy user for authentication. Instead, I used a token-based mechanism, with the token set in the environment variable `AUTH_TOKEN`. I hope this is acceptable for the assignment.
 
 ## Sample Data

@@ -41,10 +41,10 @@ class ApiV1TestCase(TestCase):
         self.assertEqual(response.json()[0]['total_consumption'], 6000)
         self.assertEqual(response.json()[1]['name'], "property space 2")
         self.assertEqual(response.json()[1]['address']['street'], "456 Main St")
-        self.assertEqual(response.json()[1]['total_consumption'], 10000)
+        self.assertEqual(response.json()[1]['total_consumption'], 7000)
         self.assertEqual(response.json()[2]['name'], "property space 3")
         self.assertEqual(response.json()[2]['address']['street'], "789 Main St")
-        self.assertEqual(response.json()[2]['total_consumption'], 11000)
+        self.assertEqual(response.json()[2]['total_consumption'], 8000)
     
     def test_get_all_property_spaces_with_year_2020(self):
         response = self.client.get('/api/v1/property-spaces?year=2020')
@@ -64,8 +64,8 @@ class ApiV1TestCase(TestCase):
         response = self.client.get('/api/v1/property-spaces?year=2022')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json()[0]['total_consumption'], 5000)
-        self.assertEqual(response.json()[1]['total_consumption'], 6000)
-        self.assertEqual(response.json()[2]['total_consumption'], 6000)
+        self.assertEqual(response.json()[1]['total_consumption'], 3000)
+        self.assertEqual(response.json()[2]['total_consumption'], 3000)
     
     def test_get_all_property_spaces_with_year_2023(self):
         response = self.client.get('/api/v1/property-spaces?year=2023')
